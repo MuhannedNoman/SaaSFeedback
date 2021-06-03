@@ -1,8 +1,8 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import '@fontsource/inter/variable.css';
 
-import { AuthProvider } from '../lib/auth';
-import theme from '../styles/theme';
+import { AuthProvider } from '@/lib/auth';
+import theme from '@/styles/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
