@@ -13,6 +13,7 @@ import {
 
 import { useAuth } from '@/lib/auth';
 import Logo from '@/icons/Logo';
+import AddSiteModal from '@/components/AddSiteModal';
 
 const DashboardWrapper = ({ children }) => {
   const { user, signout } = useAuth();
@@ -36,10 +37,12 @@ const DashboardWrapper = ({ children }) => {
             <Link>Feedback</Link>
           </Flex>
           <Flex justifyContent="center" alignItems="center">
-            <Button variant="ghost" mr={2} onClick={() => signout()}>
-              Log Out
-            </Button>
-            <Avatar size="sm" src={user.photoUrl} />
+            {user &&(
+              <Button variant="ghost" mr={2} onClick={() => signout()}>
+                  Log Out
+                </Button>
+            )}
+            <Avatar size="sm" src={user?.photoUrl} />
           </Flex>
         </Flex>
       </Flex>
@@ -50,19 +53,10 @@ const DashboardWrapper = ({ children }) => {
           </BreadcrumbItem>
         </Breadcrumb>
         <Flex justifyContent="space-between">
-          <Heading mb={8}>My Sites</Heading>
-          <Button
-            backgroundColor="gray.900"
-            color="white"
-            fontWeight="medium"
-            _hover={{ bg: 'gray.700' }}
-            _active={{
-              bg: 'gray.800',
-              transform: 'scale(0.95)'
-            }}
-          >
+          <Heading mb={8}>My Sites</Heading>            
+          <AddSiteModal>
             + Add Site
-          </Button>
+          </AddSiteModal>
         </Flex>
         {children}
       </Flex>
