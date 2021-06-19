@@ -19,7 +19,6 @@ import {
 
 import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
-import fetcher from '@/utils/fetcher';
 
 const AddSiteModal = ({ children }) => {
   const auth = useAuth();
@@ -43,9 +42,13 @@ const AddSiteModal = ({ children }) => {
         status: 'success',
         isClosable: true
       });
-      mutate('/api/sites', async data => {
-        return { sites: [...data.sites, newSite] }
-      }, false);
+      mutate(
+        ['/api/sites', auth.user.token],
+        async (data) => {
+          return { sites: [...data.sites, newSite] };
+        },
+        false
+      );
       onClose();
     };
 
