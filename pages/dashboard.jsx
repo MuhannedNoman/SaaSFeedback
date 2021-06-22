@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import { useAuth } from '@/lib/auth';
 import EmptyPlan from '@/components/EmptyPlan';
-import  Table, { TableSkeleton } from '@/components/Table';
+import { SiteTable, TableSkeleton } from '@/components/Table';
 import DashboardWrapper from '@/components/DashboardWrapper';
 import fetcher from '@/utils/fetcher';
 
@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <DashboardWrapper>
-      {data.sites ? <Table sites={data.sites} /> : <EmptyPlan />}
+      {data.sites ? <SiteTable sites={data.sites} /> : <EmptyPlan />}
     </DashboardWrapper>
   );
 }

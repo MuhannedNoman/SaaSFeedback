@@ -3,11 +3,11 @@ import { Box, Link } from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';
 import NextLink from 'next/link';
 
-import { Table as ChakraTable, Tr, Th, Td } from './TableCells';
+import { Table, Tr, Th, Td } from './TableCells';
 
-const Table = ({ sites }) => {
+const SiteTable = ({ sites }) => {
   return (
-    <ChakraTable>
+    <Table>
       <thead>
         <Tr>
           <Th>Name</Th>
@@ -31,8 +31,8 @@ const Table = ({ sites }) => {
           </Box>
         ))}
       </tbody>
-    </ChakraTable>
+    </Table>
   );
 };
 
-export default Table;
+export default SiteTable;
