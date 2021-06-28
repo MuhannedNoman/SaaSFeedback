@@ -28,7 +28,7 @@ export default function Home() {
             `
           }}
         />
-        <title>Fast Feedback</title>
+        <title>SaaS Feedback</title>
       </Head>
       <Logo />
       {auth.user ? (
@@ -56,8 +56,8 @@ export default function Home() {
           <Button
             onClick={() => auth.signinWithGoogle()}
             backgroundColor="white"
-              color="gray.900"
-              variant="outline"
+            color="gray.900"
+            variant="outline"
             fontWeight="medium"
             leftIcon={<Google />}
             mt={4}
