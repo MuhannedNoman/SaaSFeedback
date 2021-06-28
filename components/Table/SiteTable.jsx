@@ -4,6 +4,7 @@ import { parseISO, format } from 'date-fns';
 import NextLink from 'next/link';
 
 import { Table, Tr, Th, Td } from './TableCells';
+import { SITE_BASE_ROUTE } from '../../routes';
 
 const SiteTable = ({ sites }) => {
   return (
@@ -23,7 +24,11 @@ const SiteTable = ({ sites }) => {
             <Td fontWeight="medium">{site.name}</Td>
             <Td>{site.url}</Td>
             <Td>
-              <NextLink href="/s/[siteId]" as={`/s/${site.id}`} passHref>
+              <NextLink
+                href={`${SITE_BASE_ROUTE}/[siteId]`}
+                as={`${SITE_BASE_ROUTE}/${site.id}`}
+                passHref
+              >
                 <Link color="blue.500" fontWeight="medium">
                   View Feedback
                 </Link>

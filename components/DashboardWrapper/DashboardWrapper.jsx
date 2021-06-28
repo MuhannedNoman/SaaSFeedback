@@ -4,6 +4,7 @@ import { Box, Button, Flex, Link, Avatar } from '@chakra-ui/react';
 
 import { useAuth } from '@/lib/auth';
 import Logo from '@/icons/Logo';
+import { BASE_ROUTE, DASHBOARD_ROUTE, FEEDBACK_ROUTE } from '../../routes';
 
 const DashboardWrapper = ({ children }) => {
   const { user, signout } = useAuth();
@@ -22,13 +23,13 @@ const DashboardWrapper = ({ children }) => {
           px={8}
         >
           <Flex>
-            <NextLink href="/" passHref>
+            <NextLink href={BASE_ROUTE} passHref>
               <Logo boxSize="24px" mr={8} />
             </NextLink>
-            <NextLink href="/dashboard" passHref>
+            <NextLink href={DASHBOARD_ROUTE} passHref>
               <Link mr={4}>Sites</Link>
             </NextLink>
-            <NextLink href="/feedback" passHref>
+            <NextLink href={FEEDBACK_ROUTE} passHref>
               <Link>Feedback</Link>
             </NextLink>
           </Flex>
